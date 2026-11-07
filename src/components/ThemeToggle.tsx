@@ -25,10 +25,40 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggle}
       aria-label={isDark ? "라이트 모드로 전환" : "다크 모드로 전환"}
-      className="rounded-full border border-gray-300 p-2 text-lg leading-none transition hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
+      className="flex h-10 w-10 items-center justify-center rounded-full border border-white/70 bg-white/45 text-stone-600 shadow-glass backdrop-blur-md transition duration-300 hover:bg-white/65 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-300/80 dark:border-white/10 dark:bg-white/[0.06] dark:text-stone-300 dark:shadow-glass-dark dark:hover:bg-white/[0.1]"
     >
       {/* 하이드레이션 전에는 아이콘 자리만 유지 */}
-      <span className="block h-5 w-5">{isDark === null ? "" : isDark ? "☀️" : "🌙"}</span>
+      <span className="block h-[18px] w-[18px]">
+        {isDark === null ? null : isDark ? <SunIcon /> : <MoonIcon />}
+      </span>
     </button>
+  );
+}
+
+const iconProps = {
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 1.75,
+  strokeLinecap: "round" as const,
+  strokeLinejoin: "round" as const,
+  className: "h-full w-full",
+  "aria-hidden": true,
+};
+
+function SunIcon() {
+  return (
+    <svg {...iconProps}>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg {...iconProps}>
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </svg>
   );
 }

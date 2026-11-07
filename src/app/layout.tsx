@@ -27,8 +27,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ko" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+        />
       </head>
-      <body className="bg-white text-gray-900 antialiased transition-colors dark:bg-gray-950 dark:text-gray-100">
+      <body className="bg-[#fffaf3] font-sans text-stone-800 antialiased dark:bg-[#1b1512] dark:text-stone-100">
         {children}
       </body>
     </html>
