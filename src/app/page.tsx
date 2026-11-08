@@ -1,4 +1,4 @@
-import LinkCard from "@/components/LinkCard";
+import LinkList from "@/components/LinkList";
 import ProfileHeader from "@/components/ProfileHeader";
 import ThemeToggle from "@/components/ThemeToggle";
 import { profile } from "@/data/profile";
@@ -14,13 +14,9 @@ export default function Home() {
         <ProfileHeader name={profile.name} bio={profile.bio} imageUrl={profile.imageUrl} />
       </div>
 
-      <ul className="mt-10 flex flex-col gap-4">
-        {profile.links.map((link) => (
-          <li key={link.id}>
-            <LinkCard title={link.title} url={link.url} />
-          </li>
-        ))}
-      </ul>
+      <div className="mt-10">
+        <LinkList links={profile.links} />
+      </div>
 
       <footer className="mt-auto pt-16 text-center text-xs font-medium tracking-widest text-stone-400 dark:text-stone-500">
         링크나무
